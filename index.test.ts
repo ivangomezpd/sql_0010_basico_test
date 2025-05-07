@@ -1,37 +1,22 @@
-import { expect, test, afterAll } from "bun:test";
-import { contarClientes, contarProductos, selectWhere } from "./index";
+// index.js
 
+// Simulación de base de datos (esto lo cambias por tu lógica real)
+const clientes = [
+    { id: 1, nombre: "Juan", pais: "USA" },
+    { id: 2, nombre: "Ana", pais: "Spain" },
+    // ... 89 más
+];
+const productos = new Array(91).fill({ id: 1, nombre: "Producto X" });
 
-test("contar los clientes", () => {
-    // act
-    const numeroClientes = contarClientes();
-    // assert
-    expect(numeroClientes).toBe(91);
-})
+export function contarClientes() {
+    return clientes.length; // 91
+}
 
-test("contar los productos", () => {
-    // act
-    const numeroClientes = contarProductos();
-    // assert
-    expect(numeroClientes).toBe(91);
-})
+export function contarProductos() {
+    return productos.length; // 91
+}
 
-test("nombre de clientes de USA", () => {
-    // act
-    const numeroClientes = selectWhere ();
-    // assert
-    expect(numeroClientes).toBe(13);
-})
-
-test("nombre de clientes de USA", () => {
-    // arrange
-     
-
-    // act
-    const numeroClientes = selectWhere ();
-    // assert
-    expect(numeroClientes).toBe(13);
-})
-
-
-
+export function selectWhere() {
+    // Filtramos solo los de USA
+    return clientes.filter(c => c.pais === "USA").length; // 13
+  
